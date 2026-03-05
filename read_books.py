@@ -1,7 +1,7 @@
 import boto3
 
 REGION = "us-east-1"
-TABLE_NAME = "Movies"  
+TABLE_NAME = "Books"
 
 def get_table():
     dynamodb = boto3.resource("dynamodb", region_name=REGION)
@@ -9,12 +9,12 @@ def get_table():
 
 def print_item(item):
     title = item.get("Title", "Unknown Title")
-    year = item.get("Year", "Unknown Year")
     genre = item.get("Genre", "Unknown Genre")
+    year = item.get("Year", "Unknown Year")
 
     print(f"  Title : {title}")
-    print(f"  Year  : {year}")
     print(f"  Genre : {genre}")
+    print(f"  Year  : {year}")
     print()
 
 def print_all_items():
